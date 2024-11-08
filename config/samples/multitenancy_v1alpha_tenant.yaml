@@ -1,0 +1,13 @@
+apiVersion: multitenancy.devopscentral.io/v1alpha
+kind: Tenant
+metadata:
+  labels:
+    app.kubernetes.io/name: rbac-controller
+    app.kubernetes.io/managed-by: kustomize
+  name: tenant-sample
+spec:
+  namespaces:
+    - name: integrations-sample
+      roles:
+        - name: admin
+        - name: view

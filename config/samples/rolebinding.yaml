@@ -1,0 +1,18 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: tenant-rolebinding
+  namespace: integrations-sample  # Replace with the appropriate namespace
+  ownerReferences:
+  - apiVersion: multitenancy.devopscentral.io/v1alpha
+    kind: Tenant
+    name: tenant-sample  # Replace with the name of your Tenant object
+    uid: 1fcd4c71-8147-4b42-9bac-97cac41483ed
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: admin  # Replace with the name of the Role
+subjects:
+- kind: User
+  name: example-user  # Replace with the user or group
+  apiGroup: rbac.authorization.k8s.io
